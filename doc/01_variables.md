@@ -76,6 +76,10 @@ scientific_number = 1e2 # 这是科学技术法标识的，e代表10^，这个�
 e = "Hello World!"
 f = "jessie"
 Lancer = 'dead' # 单双引号都是表示字符串
+multiple_line_string = """Hello
+Yes
+Wooooohooo!
+"""  # 多行字符串
 
 # Boolean
 is_true = True # 布尔型表示真和假，用于逻辑判断
@@ -109,9 +113,26 @@ WE_OFTEN_DO_NOT_USE_NUMBERS = "Sure"
 
 ### 字符串和编码
 
+我们都知道
+
 ### 查看类型信息
 
 ### 类型之间的转换
+
+### 小插曲：怎么写注释
+
+注释是给人看的文字，不会被当作程序的一部分，会被解释器忽略
+
+python的注释可以使用`#`表示单行，或者用三个单/双引号表示多行注释
+
+```python
+# This is the comment
+
+'''
+I'm also a comment.
+这样我可以存储多行注释
+'''
+```
 
 ### 课后练习
 
