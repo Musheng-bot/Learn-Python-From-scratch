@@ -31,7 +31,7 @@ By Soren (aka musheng-bot)
 - `Distribution`内容更全，体积较大
 - `Miniconda`体积比较小，只保留部分内容
 
-如果不知道装哪个可以选`Distribution`版本，点击下载，根据自己的系统类型选择，大部分同学应该都是`Windows x86_64`(或者说`Windows 64位系统`)系统，安装前请在系统设置里确认。
+如果不知道装哪个可以选`Miniconda`版本，点击下载，根据自己的系统类型选择，大部分同学应该都是`Windows x86_64`(或者说`Windows 64位系统`)系统，安装前请在系统设置里确认。
 
 ---
 

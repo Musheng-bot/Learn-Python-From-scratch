@@ -43,6 +43,7 @@ hello_it_is_the_python_teaching_document_written_by_Soren = 0b010010000110010101
 
 1. 只能由小写字母，大写字母，数字，下划线组成
 2. 不能由数字开头
+3. 不能是python的关键字
 
 ```python
 # Valid identifiers
@@ -119,6 +120,8 @@ WE_OFTEN_DO_NOT_USE_NUMBERS = "Sure"
 
 ### 类型之间的转换
 
+### 动态类型和强类型
+
 ### 小插曲：怎么写注释
 
 注释是给人看的文字，不会被当作程序的一部分，会被解释器忽略
@@ -133,6 +136,3 @@ I'm also a comment.
 这样我可以存储多行注释
 '''
 ```
-
-### 课后练习
-

@@ -71,4 +71,3 @@ source ./.venv/bin/activate
 
 ![python启动了虚拟环境](res/python_venv_activate.png)
 
-

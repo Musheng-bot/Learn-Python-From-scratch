@@ -6,51 +6,57 @@
 
 工欲善其事，必先利其器，先把最基础的python解释器下载下来吧。
 
-### Windows
+由于大部分同学使用的是`Windows 64位系统`，我们就以这个为例来详细演示如何下载python。
 
-通过python官网下载，具体可参照[安装教程](https://blog.csdn.net/maiya_yayaya/article/details/131450517)  ，记得勾选`添加到PATH`一项
-可以和本教程一致，安装`Python 3.9.24`，或者其他版本
+### Windows 64位系统
 
-> modify it to my own installation tutorial
+1. 找到[python官网](https://www.python.org/)
 
-### Linux
+![python官网](../res/python_offcial_website.png)
 
-以`Ubuntu`系统举例，我相信用其他Linux版本的朋友肯定有自己安装python的能力
+2. 点开`Downloads`下的`All releases`
 
-```shell
-sudo apt install python3
-sudo apt install python-is-python3
-```
+![python all releases](../res/choose_all_releases.png)
+
+![](../res/all_releases.png)
+
+3. 往下翻到`python 3.10`版本，本次讲座我们会使用这个版本
+
+![](../res/find_python_3.10.png)
+
+4. 本机是`Windows 64位系统`，所以点击安装`Windows Installer 64-bit`一项
+
+5. 稍等一下，等它下载完毕，然后点开这个安装程序
+
+![](../res/open_installation_program.png)
+
+6. 请注意，务必勾选这个`Add to path`的选项
+
+![](../res/notice_add_to_path.png)
+
+7. 等待安装完毕
+![](../res/wait_for_installation.png)
+
+8. 打开你的cmd
+
+![](../res/wait_for_installation.png)
+
+9. 输入以下命令`python --version`，如果成功弹出版本号就是安装成功！
+
+![](../res/successful_installation.png)
+
+如果没有成功输出，可能是电脑需要重启
+
 
 ### Mac
 
 麻烦参考[Mac安装Python官方教程](https://docs.python.org/zh-cn/3/using/mac.html)，本人没有Mac系统，无法演示
 
-### 验证安装成功
-
-打开`终端`或`cmd`，输入
-
-```shell
-python --version
-# 或者输入
-python3 --version 
-```
-
-弹出来的是版本号就对了，就像这样
-
-![python弹出版本号](../res/python_version.png)
-
-## 本教程环境
-
-本教程使用`Ubuntu 22.04 LTS`系统，python版本为`Python 3.9.24`，使用`anaconda`创建的虚拟环境。  
-
-> 关于本教程使用的不是`Windows`或`Mac`系统这点不必太慌张，`python`支持跨平台，同样的源码只要环境是一样的，就可以在这几个系统中运行出一样的结果。
-
 ## 虚拟环境
 
 > 该部分可以选择是否需要安装，本讲座不会涉及，但是未来使用Python的时候，这部分是不可避免的
 
-请查看[Anaconda虚拟环境安装教程](CondaInstall.md)
+请查看[Anaconda虚拟环境安装教程](CondaInstall.pdf)
 
 
 ## 安装开发工具
@@ -79,7 +85,7 @@ python3 --version
 
 ### Pycharm
 
-> 可选，IDE的好处是操作方便和功能健全，但是也会影响初期对编程的理解，慎用
+> 可选，IDE的好处是操作方便和功能健全，但是也会影响学习初期对编程的理解，编程初期慎用
 
 `Pycharm`是Jetbrains公司研发的针对python的IDE(Integrated Development Environment)，好用但是要花钱。  
 
@@ -89,7 +95,7 @@ python3 --version
 
 ## 结语
 
-以上教程走完你应该有一个基础的开发工具了，打开你的`终端`或`cmd`，输入以下内容，开始你的编程之旅吧
+以上教程走完你应该有一个基础的开发工具了，打开你的`cmd`，输入以下内容，开始你的编程之旅吧
 
 ```shell
 python
