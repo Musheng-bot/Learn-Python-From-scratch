@@ -398,6 +398,31 @@ print(True > False)
 
 只要掌握三种，`and`, `or`, `not`，分别对应与，或，非
 
+- and:
+  
+| A | B | A and B |
+|:---|:---|:---|
+|False | False | False |
+|True | False | False |
+|False | True | False |
+|True | True | True |
+
+- or:
+
+| A | B | A or B |
+|:---|:---|:---|
+|False | False | False |
+|True | False | True |
+|False | True | True |
+|True | True | True |
+
+- not:
+
+| A | not A|
+|:---|:---|
+| True | False |
+| False | True|
+
 ```python
 print(True and True)
 print(True and False)
@@ -473,17 +498,162 @@ python没有所谓的运算优先级，但是运算对应的运算符是有优�
 
 ### 回顾布尔值
 
-布尔值是表示真假的值
+布尔值是表示真假的值，它有独特的几个运算，也就是与或非，`and`, `or`, `not`
 
 ### if-else分支
 
+`if`是条件判断中最重要的一环，它用于条件判断，它判断的条件为True时，执行if分支，否则跳过不执行
+
+```python
+# 格式如下：
+if condition:
+    statement
+```
+
+写一个简单的if语句感受一下吧
+
+```python
+a = input("print a number: ")
+a = int(a)
+if a == 1:
+    print("Yes") # indent block
+```
+
+当然实际上我们不可能光想要这样的效果，我们使用分支常常是为了达成`如果A，就。。。，否则，。。。`的效果，那么我们就需要另一个关键字`else`，它的作用就是`否则`
+
+```python
+a = input("Print a number: ")
+a = int(a)
+if a == 1:
+    print("Yes")
+else:
+    print("No")
+```
+
+那么假如说我们选项有三个怎么办，那当然可以只用if-else完成
+
+```python
+a = input("Print a number: ")
+a = int(a)
+if a == 1:
+    print("Yes")
+else:
+    if a == -1:
+        print("Not bad")
+    else:
+        print("No")
+```
+
+但是看起来就很臃肿，我们简化一下它：用`elif`关键字，它是`else if`的简写
+
+```python
+a = input("Print a number: ")
+a = int(a)
+if a == 1:
+    print("Yes")
+elif a == -1:
+    print("Not bad")
+else:
+    print("No")
+```
+
+这样看起来就好很多了，清晰明了，当然你可以用很多`elif`
+
+```python
+a = input("Print a number: ")
+a = int(a)
+if a == 1:
+    print("Yes")
+elif a == -1:
+    print("Not bad")
+elif a == 0:
+    print("Not good")
+else:
+    print("No")
+```
+
+但是一个else必须找到一个if，否则语法不正确
+
 ### for循环
+
+循环是个非常重要的概念，我们经常有需要重复执行多少次的请求，比如我需要重试3次，这3次需要执行的内容是一模一样的，如果写三遍那也太麻烦了，所以我们有了循环。
+
+```python
+a = 1
+for i in range(10):
+    print(a)
+    a += 1
+```
+
+就像这样，我们就定义了一个for循环，这个结构可以让我们循环10次，如果要循环20次，只要把10改成20即可
+
+#### Special: range function
+
+range是个函数，它有三种形式
+
+```python
+range(stop)                  # 从 0 开始，到 stop-1 结束，步长为 1
+range(start, stop)           # 从 start 开始，到 stop-1 结束，步长为 1
+range(start, stop, step)     # 从 start 开始，到 stop-1 结束，步长为 step（step≠0）
+```
+
+可以根据需求使用
 
 ### while循环
 
+for循环经常是在我们已知循环次数的时候用的，但是如果我不需要等三次密码输入错误，而是我要让它重试到输入正确呢？  
+用while循环，while循环会一直执行，直到达到退出条件。
+
+```python
+a = 1
+while a < 10:
+    print(a)
+    a += 1
+```
+
+它会一直执行，直到`a < 10`这个条件不再成立
+
 ### 循环控制
 
+循环可能会有提前退出的情况，还是输入密码的例子，我一旦输入正确就要提前退出了，怎么办呢？答案是`break`和`continue`关键字，
+
+- `break`： 提前退出循环
+- `continue`： 无视剩下的代码，直接跳到下一次循环
+
+```python
+a = 1
+while a < 10:
+    if a < 0:
+        print("a is too small!")
+        break
+    if a % 3 == 0:
+        a += 2
+        continue
+    print(a)
+    a += 1
+```
+
 ### 练习2
+
+1. 猜数字游戏，使用随机数生成一个数，然后让玩家不断猜测，并提示所猜数字大或小，直至猜对
+2. 打印[m, n]范围内的所有偶数（m，n是自己指定的）
+3. 优化之前解一元二次方程的代码，在方程无实数解的时候提示"无实数解"，有两个相同解时提示"有两个相同的解"
+4. 打印斐波那契数列的前20项
+5. 打印九九乘法表
+6. 自己设定一个密码，让用户输入密码，如果3次输入错误就终止程序并提示，输入正确就提示登陆成功
+7. 打印一个菱形
+
+```text
+   *
+  ***
+ *****
+*******
+ *****
+  ***
+   *
+```
+
+---
 
 ## Chapter5 更复杂的类型
 
@@ -504,6 +674,8 @@ python没有所谓的运算优先级，但是运算对应的运算符是有优�
 ### 列表生成式
 
 ### 练习3
+
+---
 
 ## Chapter6 函数
 
