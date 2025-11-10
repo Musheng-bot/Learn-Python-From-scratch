@@ -12,41 +12,41 @@
 
 1. 找到[python官网](https://www.python.org/)
 
-![python官网](../res/python_offcial_website.png)
+![python官网](res/python_offcial_website.png)
 
 2. 点开`Downloads`下的`All releases`
 
-![python all releases](../res/choose_all_releases.png)
+![python all releases](res/choose_all_releases.png)
 
-![](../res/all_releases.png)
+![python all releases](res/all_releases.png)
 
 3. 往下翻到`python 3.10`版本，本次讲座我们会使用这个版本
 
-![](../res/find_python_3.10.png)
+![py 3.10](res/find_python_3.10.png)
 
 4. 本机是`Windows 64位系统`，所以点击安装`Windows Installer 64-bit`一项
 
 5. 稍等一下，等它下载完毕，然后点开这个安装程序
 
-![](../res/open_installation_program.png)
+![installation begin](res/open_installation_program.png)
 
 6. 请注意，务必勾选这个`Add to path`的选项
 
-![](../res/notice_add_to_path.png)
+![add to path](res/notice_add_to_path.png)
 
 7. 等待安装完毕
-![](../res/wait_for_installation.png)
+
+![wait](res/wait_for_installation.png)
 
 8. 打开你的cmd
 
-![](../res/wait_for_installation.png)
+![wait](res/open_cmd.png)
 
 9. 输入以下命令`python --version`，如果成功弹出版本号就是安装成功！
 
-![](../res/successful_installation.png)
+![success](res/successful_installation.png)
 
 如果没有成功输出，可能是电脑需要重启
-
 
 ### Mac
 
@@ -57,7 +57,6 @@
 > 该部分可以选择是否需要安装，本讲座不会涉及，但是未来使用Python的时候，这部分是不可避免的
 
 请查看[Anaconda虚拟环境安装教程](CondaInstall.pdf)
-
 
 ## 安装开发工具
 
@@ -73,11 +72,11 @@
 
 首先安装简体中文语言包，点开左边有点像四个方块的图案，然后搜索`chinese`
 
-![安装中文简体语言包](../res/chinese_simplifed_plugin.png)
+![安装中文简体语言包](res/chinese_simplifed_plugin.png)
 
 再输入python，下载以下插件
 
-![python插件下载](../res/py_extensions.png)
+![python插件下载](res/py_extensions.png)
 
 然后就可以在VSCode里面愉快写Python了！
 
