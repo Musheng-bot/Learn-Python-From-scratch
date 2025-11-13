@@ -713,24 +713,130 @@ print(languages)
 
 languages = ['C', 'Objective C', 'HTML', 'CSS']
 print('C' in languages)
-
+languages[1] = "Rust"
+print(languages[1])
 ```
-
-### 索引
-
-依然是标号的思想，我们有时候
 
 ### 用循环遍历容器
 
+利用for循环，我们可以遍历所有在容器内的元素
+
+```python
+languages = ['Python', 'C++', 'JavaScript', 'Java']
+for language in languages:
+    print(f"I love {language}")
+    
+# or
+for i in range(len(languages)):
+    if i % 2 == 0:
+        print(f"{languages[i]} is easy")
+    else:
+        print(f"{languages[i]} is hard")
+```
+
 ### 切片
+
+切片是提取一系列元素的艺术
+
+```python
+nums = list(range(100))
+
+print(nums[:])
+print(nums[:50])
+print(nums[0:10])
+print(nums[20:50:2])
+print(nums[::2])
+print(nums[-1:])
+print(nums[::-1])
+
+nums = nums[:10]
+print(nums[5:20])
+print(nums[1:3:-1])
+```
 
 ### 元组
 
+元组的概念是很简单的，它和列表其实是非常类似的，区别是元组属于`不可变类型`。
+
+```python
+nums = tuple(range(10))
+print(nums)
+print(nums[1:8])
+print(nums[4])
+
+nums = (1, 2, 3, 4)
+print(nums)
+nums = (2, )
+
+nums[0] = 10
+```
+
 ### 集合
+
+集合是个特殊的数据类型，它符合数学中的`集合`概念，最重要的是`不可重复`的特性，事实上集合的主要作用也就是方便的`去重`。
+
+```python
+nums = list(range(10))
+s = set(nums)
+print(s)
+s = {1, 2, 3}
+print(s)
+s = {1, 2, 1, 3}
+print(s)
+```
+
+> 集合在python中的作用比较弱，仅供了解，因为在各种各样的python库当中大多自带专门去重的方法，集合的最大用处被代替了
 
 ### 字典
 
+字典是一个一对一的结构，这种一个对一个的结构被我们称为`键值对`，或者叫`key-value pair`，一个键对应一个值
+
+```python
+dictionary = {'John': 19, 'Mary': 21, 'Chen': 20}
+print(dictionary)
+print(dictionary.get('John'))
+print(dictionary['Mary'])
+
+dictionary['Mary'] = 30
+print(dictionary)
+print('John' in dictionary)
+
+dictionary['Jackie'] = 40
+print(dictionary)
+
+age = dictionary.pop('Chen')
+print(age)
+
+age = dictionary.pop('Zhang', 'default_age')
+print(age)
+```
+
+当然字典也支持循环遍历
+
+```python
+dictionary = {'John': 19, 'Mary': 21, 'Chen': 20}
+for key in dictionary:
+    print(key)
+
+for key, value in dictionary.items():
+    print(key, value)
+
+for value in dictionary.values():
+    print(value)
+dictionary.clear()
+```
+
 ### 列表生成式
+
+这是一种更高效率的生成列表的方式
+
+```python
+nums = [i * i for i in range(3)]
+words = ["apple", "cat", "banana", "dog", "grape"]
+long_words = [word for word in words if len(word) > 3]
+print(long_words)
+result = [i if i % 2 == 0 else -i for i in range(1, 11)]
+```
 
 ### 练习3
 
@@ -740,7 +846,6 @@ print('C' in languages)
 4. 生成含从1到20所有整数的平方的列表，即\[1, 4, 9, ...\]
 5. 反转一个列表
 6. 给定一个段落，统计每个单词的出现次数并输出
-7. 给定一组数据，进行去重操作并输出
 
 ---
 
