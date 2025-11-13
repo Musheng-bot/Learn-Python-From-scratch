@@ -695,6 +695,27 @@ l = a.split('\n')
 
 #### 列表的增删改查
 
+```python
+languages = ['Python', 'C++', 'Java']
+languages.append('Golang')
+languages.insert(1, 'JavaScript')
+
+if 'Java' in languages:
+    languages.remove('Java')
+temp = languages.pop(1)
+print(temp)
+languages.pop()
+print(languages)
+
+print(len(languages))
+languages.clear()
+print(languages)
+
+languages = ['C', 'Objective C', 'HTML', 'CSS']
+print('C' in languages)
+
+```
+
 ### 索引
 
 依然是标号的思想，我们有时候
