@@ -789,7 +789,7 @@ print(s)
 
 ### 字典
 
-字典是一个一对一的结构，这种一个对一个的结构被我们称为`键值对`，或者叫`key-value pair`，一个键对应一个值
+字典是一个一对一的结构，这种一个对一个的结构被我们称为`键值对`，或者叫`key-value pair`，一个键对应一个值，键必须是`不可变类型`
 
 ```python
 dictionary = {'John': 19, 'Mary': 21, 'Chen': 20}
@@ -851,21 +851,149 @@ result = [i if i % 2 == 0 else -i for i in range(1, 11)]
 
 ## Chapter6 函数
 
-### 特殊的类型: None
+### 函数是什么
+
+在实际的编程中，我们有很多非常重复，需要很多次调用的代码，比如说我需要提取一系列数字的最大值，或者排序，或者打印一系列语句。  
+函数说白了，就是一群代码，这一群代码可以通过特定的方式被执行，函数内的代码在这个函数没有被调用的时候是没有任何用的。
+
+### 特殊的一个值: None
+
+None是一个相当特殊的类型，它的类型是`NoneType`，它的意义是表示`空`的概念
+
+```python
+a = None
+print(type(a))
+if a is None:
+    print("a is empty")
+```
 
 ### 定义一个函数
 
+python中的函数定义只需要使用一个关键字，叫作def，像下面这样就可以定义一个函数了
+
+```python
+def my_func():
+    print('Hello World!')
+    return
+
+my_func()
+```
+
 ### 让函数返回值
+
+我们刚刚只是让函数执行了一系列语句，但是函数实际上可以承担返回计算结果的责任，就像数学中的函数一样，只需要使用return
+
+```python
+def f(x):
+    return x**2
+# y = x ** 2
+
+print(f(2))
+y = f(3)
+print(y)
+```
 
 ### 让函数提前返回
 
+有时候我们可能有提前返回的需求，最典型的就是发现信息不对，没法执行下面的操作了，所以return操作可以不放在函数最后，这种用法常常搭配着条件判断
+
+```python
+def check_info(info):
+    print(info)
+    if 'username' not in info:
+        return "Need username"
+    return info.get('username')
+
+print(check_info({'username': 'Jackie'}))
+print(check_info({}))
+```
+
 ### 更严格的类型检查
+
+其实你在写函数的时候已经感觉到了，你的代码提示好像不会出现了，这是因为你没有给你的变量指定类型，所以他不知道你的变量可以执行什么操作，所以它不会再给你代码提示了。  
+
+因此，我们可以给函数变量添加类型声明，把我们的代码提示拿回来
+
+```python
+def check_info(info: dict):
+    print(info)
+    if 'username' not in info:
+        # 直接返回，不执行后续代码
+        return "Need username"
+    return info.get('username')
+```
+
+函数变量可以添加类型，返回值也可以添加类型
+
+```python
+def check_info(info: dict) -> str:
+    print(info)
+    if 'username' not in info:
+        return "Need username"
+    return info.get('username')
+
+def no_return_func(var: int) -> None:
+    print("This function does not do anything")
+    print("I've got a variable, {}".format(var))
+```
 
 ### 在函数中修改变量的值
 
+我们可以在函数中修改某些类型的变量的值，比如列表和字典
+
+```python
+def lower_dict(dictionary: dict) -> None:
+    for key in dictionary:
+        value = dictionary.get(key)
+        dictionary[key] = value.lower()
+
+def add_one(nums: list) -> None:
+    for i in range(len(nums)):
+        nums[i] += 1
+```
+
 ### 位置参数和关键字参数
 
+这是调用python代码的两种方式，前一种是大多数语言都支持，也是最直接的一种方式，也就是按照位置顺序把参数传入，而后一种是更为直观，且有python特色的一个调用函数方式
+
+```python
+def draw_plot(x: list, y: list, size: int=1, grid: bool=True) -> None:
+    print(x, y, size, grid)
+    # Do some drawing ...
+
+draw_plot([1, 2], [1, 3], size=2, grid=False)
+draw_plot([1, 2], [1, 3], size=2)
+draw_plot([1, 2], [1, 3], grid=False)
+```
+
+### 递归
+
+递归说白了就是在函数内调用自己
+
+```python
+def factorial(n: int) -> None | int:
+    if n < 0:
+        return None
+    if n == 0 or n == 1:
+        return 1
+    return factorial(n - 1) * n
+
+# 计算阶乘
+print(factorial(5))
+```
+
+这种调用方式可以计算一些特别的，需要使用递归解决的问题，但是一定设定退出递归的条件，不然你的程序就死了。
+
 ### 练习4
+
+1. 素数判断，输出\[1, 1000\]的所有素数
+2. 写一个函数，接受一个列表，返回它的平均值，中位数，标准差，并把列表排序
+3. 输出两个数的最大公约数和最小公倍数，相关数学知识可以搜索一下
+4. 定义两个相差为 2 的素数称为素数对，如 5 和 7,17 和 19 等，要求找出所有两个数均不大于 n 的素数对。
+5. 用递归的方法求 1+2+3+ …… +N 的值。
+6. 我一次可以上一层楼或者两层楼，请问我上到第N层楼有几种方式
+7. 在程序中定义一函数 digit(n,k)，它能分离出整数 n 从右边数第 k 个数字。
+8. 实现一个函数，可以从int类型转到str类型
 
 ## Chapter7 更进一步的函数和模块
 
@@ -926,6 +1054,8 @@ result = [i if i % 2 == 0 else -i for i in range(1, 11)]
 ### 练习7
 
 ## Chapter10 再进一步的函数
+
+### 回调函数和一等公民
 
 ### 闭包
 
